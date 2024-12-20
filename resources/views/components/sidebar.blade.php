@@ -1,79 +1,116 @@
-<ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-        <div class="sidebar-brand-icon">
-            <img src="{{ asset((setting('logo')) ? '/storage/'.setting('logo') : 'dist/img/logo/logo2.png') }}">
-        </div>
-        <div class="sidebar-brand-text mx-3">SIDAPM</div>
-    </a>
-    <hr class="sidebar-divider my-0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Sidebar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Custom Sidebar Styles */
+        .custom-sidebar {
+            background-color: #f8f9fc; /* Sidebar background color */
+            color: #343a40; /* Sidebar text color */
+            min-height: 100vh;
+        }
 
-    @can('dashboard')
-    <x-nav-link 
-        text="Dashboard" 
-        icon="th" 
-        url="{{ route('admin.dashboard') }}"
-        active="{{ request()->routeIs('admin.dashboard') ? ' active' : '' }}"
-    />
+        .custom-sidebar a {
+            color: #6c757d; /* Link color */
+            text-decoration: none;
+        }
 
-    <hr class="sidebar-divider mt-3 mb-0">
-    @endcan
-    
-    @can('diagnosa')    
-    <x-nav-link 
-        text="Diagnosa" 
-        icon="stethoscope" 
-        url="{{ route('admin.diagnosa') }}"
-        active="{{ request()->routeIs('admin.diagnosa') ? ' active' : '' }}"
-    />
-    @endcan
-    
-    @can('riwayat-list')
-    <x-nav-link 
-        text="Riwayat Diagnosa" 
-        icon="notes-medical" 
-        url="{{ route('admin.riwayat.daftar') }}"
-        active="{{ request()->routeIs('admin.riwayat.daftar') ? ' active' : '' }}"
-    />
-    @endcan
+        .custom-sidebar a:hover {
+            color: #007bff; /* Link hover color */
+        }
 
-    @can('member-list')
-    <hr class="sidebar-divider mt-3 mb-0">
-    
-    <x-nav-link 
-        text="Daftar User" 
-        icon="users" 
-        url="{{ route('admin.member') }}"
-        active="{{ request()->routeIs('admin.member') ? ' active' : '' }}"
-    />
-    @endcan
+        .custom-sidebar .active {
+            background-color: #007bff; /* Active link background color */
+            color: #ffffff; /* Active link text color */
+            border-radius: 5px;
+        }
 
-    @can('penyakit-list')
-    <x-nav-link 
-        text="Daftar Penyakit" 
-        icon="th-list" 
-        url="{{ route('admin.penyakit') }}"
-        active="{{ request()->routeIs('admin.penyakit') ? ' active' : '' }}"
-    />
-    @endcan
+        .custom-sidebar .sidebar-divider {
+            border-color: #dee2e6; /* Divider color */
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar-nav sidebar accordion custom-sidebar" id="accordionSidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <div class="sidebar-brand-icon">
+                <img src="{{ asset((setting('logo')) ? '/storage/'.setting('logo') : 'dist/img/logo/logo2.png') }}" alt="Logo">
+            </div>
+            <div class="mx-3 sidebar-brand-text">SIDAPM</div>
+        </a>
+        <hr class="my-0 sidebar-divider">
 
-    @can('gejala-list')
-    <x-nav-link 
-        text="Daftar Gejala" 
-        icon="th-list" 
-        url="{{ route('admin.gejala') }}"
-        active="{{ request()->routeIs('admin.gejala') ? ' active' : '' }}"
-    />
-    @endcan
+        @can('dashboard')
+        <x-nav-link 
+            text="Dashboard" 
+            icon="th" 
+            url="{{ route('admin.dashboard') }}"
+            active="{{ request()->routeIs('admin.dashboard') ? ' active' : '' }}"
+        />
 
-    @can('rules-list')
-    <x-nav-link 
-        text="Basis Rules" 
-        icon="briefcase-medical" 
-        url="{{ route('admin.rules', 1) }}"
-        active="{{ request()->routeIs('admin.rules') ? ' active' : '' }}"
-    />
-    @endcan
-    
-    <hr class="sidebar-divider mb-0">
+        <hr class="mt-3 mb-0 sidebar-divider">
+        @endcan
+        
+        @can('diagnosa')    
+        <x-nav-link 
+            text="Diagnosa" 
+            icon="stethoscope" 
+            url="{{ route('admin.diagnosa') }}"
+            active="{{ request()->routeIs('admin.diagnosa') ? ' active' : '' }}"
+        />
+        @endcan
+        
+        @can('riwayat-list')
+        <x-nav-link 
+            text="Riwayat Diagnosa" 
+            icon="notes-medical" 
+            url="{{ route('admin.riwayat.daftar') }}"
+            active="{{ request()->routeIs('admin.riwayat.daftar') ? ' active' : '' }}"
+        />
+        @endcan
 
-</ul>
+        @can('member-list')
+        <hr class="mt-3 mb-0 sidebar-divider">
+        
+        <x-nav-link 
+            text="Daftar User" 
+            icon="users" 
+            url="{{ route('admin.member') }}"
+            active="{{ request()->routeIs('admin.member') ? ' active' : '' }}"
+        />
+        @endcan
+
+        @can('penyakit-list')
+        <x-nav-link 
+            text="Daftar Penyakit" 
+            icon="th-list" 
+            url="{{ route('admin.penyakit') }}"
+            active="{{ request()->routeIs('admin.penyakit') ? ' active' : '' }}"
+        />
+        @endcan
+
+        @can('gejala-list')
+        <x-nav-link 
+            text="Daftar Gejala" 
+            icon="th-list" 
+            url="{{ route('admin.gejala') }}"
+            active="{{ request()->routeIs('admin.gejala') ? ' active' : '' }}"
+        />
+        @endcan
+
+        @can('rules-list')
+        <x-nav-link 
+            text="Basis Rules" 
+            icon="briefcase-medical" 
+            url="{{ route('admin.rules', 1) }}"
+            active="{{ request()->routeIs('admin.rules') ? ' active' : '' }}"
+        />
+        @endcan
+        
+        <hr class="mb-0 sidebar-divider">
+    </ul>
+</body>
+</html>
