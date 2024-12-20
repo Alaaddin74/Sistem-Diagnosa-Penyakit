@@ -9,7 +9,7 @@
         /* Custom Sidebar Styles */
         .custom-sidebar {
             background-color: #f8f9fc; /* Sidebar background color */
-            color: #343a40; /* Sidebar text color */
+            color:rgb(194, 206, 218); /* Sidebar text color */
             min-height: 100vh;
         }
 
@@ -19,11 +19,11 @@
         }
 
         .custom-sidebar a:hover {
-            color: #007bff; /* Link hover color */
+            color:rgb(121, 187, 253); /* Link hover color */
         }
 
         .custom-sidebar .active {
-            background-color: #007bff; /* Active link background color */
+            background-color:rgb(164, 179, 196); /* Active link background color */
             color: #ffffff; /* Active link text color */
             border-radius: 5px;
         }
@@ -39,7 +39,7 @@
             <div class="sidebar-brand-icon">
                 <img src="{{ asset((setting('logo')) ? '/storage/'.setting('logo') : 'dist/img/logo/logo2.png') }}" alt="Logo">
             </div>
-            <div class="mx-3 sidebar-brand-text">SIDAPM</div>
+            <div class="mx-3 sidebar-brand-text">SIDAKA</div>
         </a>
         <hr class="my-0 sidebar-divider">
 
